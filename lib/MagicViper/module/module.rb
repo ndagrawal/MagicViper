@@ -21,6 +21,7 @@ module MagicViper
       'Wireframe.m'       => 'Wireframe'
     }
 
+
     MagicViper::Module.source_root(File.dirname(__FILE__))
 
     desc 'list', 'lists available VIPER modules'
