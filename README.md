@@ -4,6 +4,7 @@ It helps in setting up intial project files and creating viper modules in object
 
 ## Requirements
 * Objective-C 
+* ruby 
 
 ## Installation
 
@@ -14,33 +15,21 @@ $ gem install MagicViper
 ## Usage
 
 1. Create an Xcode project
-
 2. Initialize basic VIPER structure with
-
 ```
 MagicViper init
 ```
-
-3. Input
+3. Input Required
 
 * your project name
 * preferred language
 * author
-# class prefix
-
-(these will be used in generated files). You can change these settings in `.MagicViper.yml`
+* class prefix
+(these will be used in generated files). This input setting is stored in '.MagicViper.yml' file. 
+You can change these settings in `.MagicViper.yml`
 
 4. Create your module with
-
 ```
 MagicViper module create Example
 ```
-
 You can use saved configuration by just pressing enters.
-
-#### v1.s
-* initial version
-* added class prefix option
-* added basic appledoc comments for interfaces and protocols
-* using new instead of alloc-init
-
