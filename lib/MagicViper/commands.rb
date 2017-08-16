@@ -1,4 +1,4 @@
-require 'MagicViper/module/module'
+require 'magicviper/module/module'
 require 'yaml'
 
 module MagicViper
@@ -19,9 +19,18 @@ module MagicViper
       'AppDependencies.m' => 'Classes'
     }
 
+    BASE_FILES_SWIFT = {
+      'AppDelegate.swift'     => 'Classes',
+      'AppDependencies.swift' => 'Classes'
+    }
+
     PROJECT_FILES_OBJC = {
       'RootWireframe.h'   => 'Classes/Common/Wireframe',
       'RootWireframe.m'   => 'Classes/Common/Wireframe'
+    }
+
+    PROJECT_FILES_SWIFT = {
+      'RootWireframe.swift' => 'Classes/Common/Wireframe'
     }
 
     desc 'init', 'initializes VIPER project'
@@ -51,14 +60,15 @@ module MagicViper
       # Generate files
       base_files = case lang
                    when 'objc'  then BASE_FILES_OBJC
+                   when 'swift' then BASE_FILES_SWIFT
                    end
-    
       base_files.each do |file_name, folder|
         template "templates/#{lang}/#{file_name}", "#{folder}/#{@project}#{file_name}"
       end
 
       project_files = case lang
                       when 'objc'  then PROJECT_FILES_OBJC
+                      when 'swift' then PROJECT_FILES_SWIFT
                       end
       project_files.each do |file_name, folder|
         template "templates/#{lang}/#{file_name}", "#{folder}/#{file_name}"
@@ -74,7 +84,7 @@ module MagicViper
       config = File.exists?(CONFIG_FILE) ? YAML.load_file(CONFIG_FILE) : {}
 
       project      = ask("Project name [#{config[:project]}] ?")
-      language     = ask("Project language [#{config[:language]}] ?", :limited_to => ["objc", ""])
+      language     = ask("Project language [#{config[:language]}] ?", :limited_to => ["objc", "swift", ""])
       class_prefix = ask("Class prefix [#{config[:class_prefix]}] ?")
       author       = ask("Author [#{config[:author]}] ?")
 
@@ -86,7 +96,7 @@ module MagicViper
       File.open(CONFIG_FILE, 'w') do |f|
         f.write config.to_yaml
       end
-      
+
       config
     end
   end
