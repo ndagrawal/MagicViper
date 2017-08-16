@@ -1,35 +1,46 @@
 # MagicViper
+MagicViper is a automatic code generator for VIPER Architecture in iOS. 
+It helps in setting up intial project files and creating viper modules in objective C only.
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/MagicViper`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+## Requirements
+* Objective-C 
 
 ## Installation
 
-Add this line to your application's Gemfile:
+Install gem with:
 
-```ruby
-gem 'MagicViper'
-```
-
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install MagicViper
+$ gem install MagicViper
 
 ## Usage
 
-TODO: Write usage instructions here
+1. Create an Xcode project
 
-## Development
+2. Initialize basic VIPER structure with
 
-After checking out the repo, run `bin/setup` to install dependencies. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
+```
+MagicViper init
+```
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+3. Input
 
-## Contributing
+* your project name
+* preferred language
+* author
+# class prefix
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/MagicViper.
+(these will be used in generated files). You can change these settings in `.MagicViper.yml`
+
+4. Create your module with
+
+```
+MagicViper module create Example
+```
+
+You can use saved configuration by just pressing enters.
+
+#### v1.s
+* initial version
+* added class prefix option
+* added basic appledoc comments for interfaces and protocols
+* using new instead of alloc-init
+
