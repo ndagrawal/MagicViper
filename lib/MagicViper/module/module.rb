@@ -34,7 +34,7 @@ module MagicViper
 
     desc 'create NAME', 'adds a new VIPER module with the specified name'
     def create(module_name)
-      config = invoke('MagicViper:commands:configure', [])
+      config = invoke(:configure, [])
 
       @module          = module_name
       @prefixed_module = config[:class_prefix] + @module
@@ -81,6 +81,31 @@ module MagicViper
       else
         say "No such module: #{@module}"
       end
+    end
+
+    # ----
+    # configuration
+    CONFIG_FILE = '.MagicViper.yml'
+
+    desc 'configure', 'configures project properties'
+    def configure
+      config = File.exists?(CONFIG_FILE) ? YAML.load_file(CONFIG_FILE) : {}
+
+      project      = ask("Project name [#{config[:project]}] ?")
+      language     = ask("Project language [#{config[:language]}] ?", :limited_to => ["objc", "swift", ""])
+      class_prefix = ask("Class prefix [#{config[:class_prefix]}] ?")
+      author       = ask("Author [#{config[:author]}] ?")
+
+      config[:project]      = project.empty?      ? config[:project] || ''      : project
+      config[:language]     = language.empty?     ? config[:language] || 'objc' : language
+      config[:class_prefix] = class_prefix.empty? ? config[:class_prefix] || '' : class_prefix
+      config[:author]       = author.empty?       ? config[:author] || ''       : author
+
+      File.open(CONFIG_FILE, 'w') do |f|
+        f.write config.to_yaml
+      end
+
+      config
     end
   end
 end

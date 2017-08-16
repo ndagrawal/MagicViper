@@ -1,3 +1,3 @@
 module MagicViper
-  VERSION = "0.1.42"
+  VERSION = "0.1.45"
 end
