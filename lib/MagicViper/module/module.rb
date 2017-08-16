@@ -33,7 +33,7 @@ module MagicViper
 
     desc 'create NAME', 'adds a new VIPER module with the specified name'
     def create(module_name)
-      config = invoke('boa:commands:configure', [])
+      config = invoke('MagicViper:commands:configure', [])
 
       @module          = module_name
       @prefixed_module = config[:class_prefix] + @module
