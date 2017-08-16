@@ -12,7 +12,7 @@ Gem::Specification.new do |spec|
   spec.description   = %q{Creates all the files and setup required for Viper Architecture in iOS.}
   spec.homepage      = "https://github.com/ndagrawal"
   spec.licenses      = "MIT"
-  spec.files         = `git ls-files -z`.split($/)
+  spec.files         = `git ls-files -z`.split("\x0")
   spec.executables   = spec.files.grep(%r{^bin/}) { |f| File.basename(f) }  
   spec.require_paths = ["lib"]
   spec.add_development_dependency "bundler", "~> 1.15"
