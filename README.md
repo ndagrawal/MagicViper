@@ -2,6 +2,7 @@
 MagicViper is a automatic code generator for VIPER Architecture in iOS. 
 It helps in setting up intial project files and creating viper modules in objective C only.
 
+
 ## Requirements
 * Objective-C 
 * ruby 
@@ -11,6 +12,7 @@ It helps in setting up intial project files and creating viper modules in object
 Install gem with:
 
 $ gem install MagicViper
+
 
 ## Usage
 
