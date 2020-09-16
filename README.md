@@ -1,7 +1,7 @@
 # MagicViper
 MagicViper is a automatic code generator for VIPER Architecture in iOS. 
 It helps in setting up intial project files and creating viper modules in objective C only.
-
+Understand what Viper architecture is : https://medium.com/trendyol-tech/creating-an-ios-viper-module-step-by-step-guide-cd1f414b7dd3
 
 ## Requirements
 * Objective-C 
